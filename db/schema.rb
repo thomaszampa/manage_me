@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_220840) do
 
   create_table "requests", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "goals_id"
+    t.integer "goal_id"
     t.integer "relationship_id"
     t.string "body"
     t.datetime "time_stamp"
