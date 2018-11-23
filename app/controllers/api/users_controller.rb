@@ -27,13 +27,13 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.relationship_id = params[:relationship_id] && @user.relationship_id
-    @user.first_name = params[:first_name] && @user.first_name
-    @user.last_name = params[:last_name] && @user.last_name
-    @user.email = params[:email] && @user.email
-    @user.access_token = params[:access_token] && @user.access_token
-    @user.artist_name = params[:artist_name] && @user.artist_name
-    @user.manager = params[:manager] && @user.manager
+    @user.relationship_id = params[:relationship_id] || @user.relationship_id
+    @user.first_name = params[:first_name] || @user.first_name
+    @user.last_name = params[:last_name] || @user.last_name
+    @user.email = params[:email] || @user.email
+    @user.access_token = params[:access_token] || @user.access_token
+    @user.artist_name = params[:artist_name] || @user.artist_name
+    @user.manager = params[:manager] || @user.manager
     if @user.save
       render json: { message: 'User updated successfully' }, status: :created
     else
