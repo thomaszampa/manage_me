@@ -1,0 +1,9 @@
+json.id user.id
+json.relationship_id user.relationship_id
+json.first_name user.first_name
+json.last_name user.last_name
+json.email user.email
+json.password_digest user.password_digest
+json.access_token user.access_token
+json.artist_name user.artist_name
+json.manager user.manager
