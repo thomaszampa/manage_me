@@ -1,0 +1,1 @@
+json.partial! 'requests.json.jbuilder', request: @request

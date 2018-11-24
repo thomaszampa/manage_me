@@ -13,5 +13,11 @@ Rails.application.routes.draw do
     get "/goals/:id" => "goals#show"
     patch "/goals/:id" => "goals#update"
     delete "/goals/:id" => "goals#destroy"
+
+    get "/requests" => "requests#index"
+    post "/requests" => "requests#create"
+    get "/requests/:id" => "requests#show"
+    patch "/requests/:id" => "requests#update"
+    delete "/requests/:id" => "requests#destroy"
   end
 end
