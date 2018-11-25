@@ -1,16 +1,16 @@
 class Api::GoalsController < ApplicationController
-  # before_action :authenticate_user
-  # before_action :authenticate_admin, except: [:index, :create, :show, :update]
+  before_action :authenticate_user
+  before_action :authenticate_manager, except: [:index, :create, :show, :update]
 
   def index
-    @goals = Goal.all
+    @goals = current_user.relationship.goals
     render "index.json.jbuilder"
   end
 
   def create
     @goal = Goal.new(
-      user_id: 1,
-      relationship_id: params[:relationship_id],
+      user_id: current_user.id,
+      relationship_id: current_user.relationship_id,
       subject: params[:subject],
       body: params[:body],
       start_date: params[:start_date],

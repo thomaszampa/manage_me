@@ -3,4 +3,5 @@ class Request < ApplicationRecord
   has_many :categories, through: :category_requests
   belongs_to :user
   belongs_to :goal
+  belongs_to :relationship
 end

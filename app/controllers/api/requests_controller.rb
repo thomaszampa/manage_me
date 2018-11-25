@@ -1,14 +1,16 @@
 class Api::RequestsController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @request = Request.all
+    @request = current_user.relationship.requests
     render "index.json.jbuilder"
   end
 
   def create
     request = Request.new(
-      user_id: 1,
+      user_id: current_user.id,
       goal_id: params[:goal_id],
-      relationship_id: params[:relationship_id],
+      relationship_id: current_user.relationship_id,
       body: params[:body],
       time_stamp: Time.now.strftime('%c'),
       due_date: params[:due_date],

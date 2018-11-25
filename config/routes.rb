@@ -19,5 +19,11 @@ Rails.application.routes.draw do
     get "/requests/:id" => "requests#show"
     patch "/requests/:id" => "requests#update"
     delete "/requests/:id" => "requests#destroy"
+
+    get "/categories" => "categories#index"
+    post "/categories" => "categories#create"
+    get "/categories/:id" => "categories#show"
+    patch "/categories/:id" => "categories#update"
+    delete "categories/:id" => "categories#destroy"
   end
 end
