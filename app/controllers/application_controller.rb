@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
+  require "http"
 
   def current_user
     auth_headers = request.headers[ 'Authorization' ]
