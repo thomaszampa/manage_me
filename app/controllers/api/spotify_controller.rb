@@ -7,7 +7,7 @@ class Api::SpotifyController < ApplicationController
 
   def callback
     response = HTTP.post("https://accounts.spotify.com/api/token",
-      :params => {
+      :form => {
         :grant_type => "authorization_code",
         :code => params[:code],
         :redirect_uri => "http://localhost:3000/api/spotify/callback",
@@ -15,6 +15,9 @@ class Api::SpotifyController < ApplicationController
         :client_secret => ENV["SPOTIFY_CLIENT_SECRET"]
       }
     )
-    render json: response.body
+
+    access_token = response.parse["access_token"]
+
+    render json: {token: access_token}
   end
 end
