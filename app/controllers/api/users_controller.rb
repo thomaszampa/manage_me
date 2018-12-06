@@ -8,6 +8,8 @@ class Api::UsersController < ApplicationController
 
   def create
     user = User.new(
+    first_name: params[:first_name] || nil,
+    last_name: params[:last_name] || nil,
     relationship_id: params[:relationship_id] || nil,
     email: params[:email],
     password: params[:password],
