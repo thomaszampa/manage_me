@@ -8,13 +8,18 @@ class Api::GoalsController < ApplicationController
   end
 
   def create
+    puts params
+    start_date = DateTime.parse(params[:start_date])
+    pp start_date
+    end_date = DateTime.parse(params[:end_date])
+    pp end_date
     @goal = Goal.new(
       user_id: current_user.id,
       relationship_id: current_user.relationship_id,
       subject: params[:subject],
       body: params[:body],
-      start_date: params[:start_date],
-      end_date: params[:end_date]
+      start_date: start_date,
+      end_date: end_date
       )
     if @goal.save
       render json: { message: 'Goal created successfully' }, status: :created 
@@ -30,7 +35,7 @@ class Api::GoalsController < ApplicationController
 
   def update
     @goal = Goal.find_by(id: params[:id])
-    @goal.user_id = 1 || @goal.user_id
+    @goal.user_id = current_user.id || @goal.user_id
     @goal.relationship_id = params[:relationship_id] || @goal.relationship_id
     @goal.subject = params[:subject] || @goal.subject
     @goal.body = params[:body] || @goal.body
