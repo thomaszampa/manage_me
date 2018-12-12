@@ -12,11 +12,11 @@ class Api::RequestsController < ApplicationController
       goal_id: params[:goal_id],
       relationship_id: current_user.relationship_id,
       body: params[:body],
-      attachment: params[:attachment],
+      request_attachment: params[:request_attachment],
       time_stamp: Time.now.strftime('%c'),
       due_date: params[:due_date],
-      over_due: params[:over_due],
-      complete: params[:complete]
+      over_due: params[:over_due] || false,
+      complete: params[:complete] || false,
     )
     if request.save
       render json: { message: 'Request created successfully' }, status: :created
