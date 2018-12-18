@@ -7,19 +7,19 @@ class Api::RequestsController < ApplicationController
   end
 
   def create
-    request = Request.new(
+    @request = Request.new(
       user_id: current_user.id,
       goal_id: params[:goal_id],
       relationship_id: current_user.relationship_id,
       body: params[:body],
-      request_attachment: params[:request_attachment],
+      request_attachment: params[:request_attachment] || "",
       time_stamp: Time.now.strftime('%c'),
       due_date: params[:due_date],
       over_due: params[:over_due] || false,
       complete: params[:complete] || false,
     )
-    if request.save
-      render json: { message: 'Request created successfully' }, status: :created
+    if @request.save
+      render "show.json.jbuilder", status: :created
     else
       render json: { errors: request.errors.full_messages }, status: :bad_request
     end

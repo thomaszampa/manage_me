@@ -22,7 +22,7 @@ class Api::GoalsController < ApplicationController
       end_date: end_date
       )
     if @goal.save
-      render json: { message: 'Goal created successfully' }, status: :created 
+      render "show.json.jbuilder", status: :created 
     else
       render json: { errors: @goal.errors.full_messages }, status: :bad_request
     end
