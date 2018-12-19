@@ -6,5 +6,5 @@ class Request < ApplicationRecord
   belongs_to :goal
   belongs_to :relationship
 
-  has_one_attached :request_attachment
+  has_one_attached :request_attachment#, optional: true
 end
