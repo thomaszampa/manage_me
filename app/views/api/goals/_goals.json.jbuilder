@@ -16,5 +16,7 @@ json.requests goal.requests.each do |request|
   json.due_date request.due_date
   json.over_due request.over_due
   json.complete request.complete
+  json.user_first request.user.first_name
+  json.user_last request.user.last_name
 end
 # json.requests goal.requests

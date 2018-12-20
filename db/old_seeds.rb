@@ -13,6 +13,16 @@ relationship = Relationship.create!(
   artist_id: 1,
   )
 
+relationship = Relationship.create!(
+  manager_id: 4,
+  artist_id: 3,
+  )
+
+relationship = Relationship.create!(
+  manager_id: 4,
+  artist_id: 5,
+  )
+
 # USERS
 
 user = User.create!(
@@ -37,15 +47,47 @@ user = User.create!(
   manager: true,
   )
 
+user = User.create!(
+  relationship_id: 2,
+  first_name: "Jack",
+  last_name: "Jackson",
+  email: "jack@email.com",
+  password: "password",
+  access_token: "",
+  artist_name: "Jackyboi",
+  manager: false,
+  )
+
+user = User.create!(
+  relationship_id: 2,
+  first_name: "Steve",
+  last_name: "Manager",
+  email: "steve@email.com",
+  password: "password",
+  access_token: "",
+  artist_name: "",
+  manager: true,
+  )
+
+user = User.create!(
+  relationship_id: 3,
+  first_name: "Frank",
+  last_name: "Frankson",
+  email: "frank@email.com",
+  password: "password",
+  access_token: "",
+  artist_name: "Big Frank",
+  )
+
 # GOALS
 
 goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
   subject: "Social Media Growth",
-  body: "Increase Follower Count, Frequency of Posting, and Overall Reach on Instagram, Facebook, and Twitter",
-  start_date: "2018-02-01 09:30:00",
-  end_date: "2019-12-31 17:00:00",
+  body: "Increase follower count, freequency of posting, and overall reach on Instagram, Facebook, and Twitter",
+  start_date: "2018-11-21 00:00:00",
+  end_date: "2019-11-01 17:00:00",
   )
 
 goal = Goal.create!(
@@ -53,13 +95,13 @@ goal = Goal.create!(
   relationship_id: 1,
   subject: "Finish Sophmore Album",
   body: "'PhonkMasterFresh' - Hottest Mixtape of 2020",
-  start_date: "2018-05-21 00:00:00",
+  start_date: "2018-11-21 00:00:00",
   end_date: "2020-11-01 17:00:00",
   )
 
 goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
+  user_id: 3,
+  relationship_id: 2,
   subject: "Book Tour",
   body: "12 Cities - 3 Weeks - 2020",
   start_date: "2020-06-22 17:00:00",
@@ -67,8 +109,8 @@ goal = Goal.create!(
   )
 
 goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
+  user_id: 3,
+  relationship_id: 2,
   subject: "PRO Affiliation",
   body: "Set-up Performing Right and File Necessary Paperwork",
   start_date: "2018-10-15 17:00:00",
@@ -76,7 +118,7 @@ goal = Goal.create!(
   )
 
 goal = Goal.create!(
-  user_id: 1,
+  user_id: 2,
   relationship_id: 1,
   subject: "Tour Management",
   body: "Dates, Cities, Hotels, Etc.",
@@ -85,8 +127,8 @@ goal = Goal.create!(
   )
 
 goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
+  user_id: 5,
+  relationship_id: 3,
   subject: "Album Artwork",
   body: "Concept, Designer, and Renderings",
   start_date: "2018-11-01 7:00:00",
@@ -94,8 +136,8 @@ goal = Goal.create!(
   )
 
 goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
+  user_id: 5,
+  relationship_id: 3,
   subject: "Stuff",
   body: "Get That Stuff Done Kid",
   start_date: "2018-11-21 00:00:00",
@@ -105,7 +147,7 @@ goal = Goal.create!(
 # REQUESTS
 
 request = Request.create!(
-  user_id: 1,
+  user_id: 3,
   goal_id: 7,
   relationship_id: 2,
   body: "Pay session musician for studio time on 10/05/2018",
@@ -138,7 +180,7 @@ request = Request.create!(
   )
 
 request = Request.create!(
-  user_id: 2,
+  user_id: 4,
   goal_id: 6,
   relationship_id: 3,
   body: "Schedule interview w/George (graphic designer)",

@@ -7,6 +7,12 @@ class Api::RequestsController < ApplicationController
   end
 
   def create
+    if params[:complete]
+      over_due = false
+    else
+      over_due = params[:over_due]
+    end
+
     @request = Request.new(
       user_id: current_user.id,
       goal_id: params[:goal_id],
@@ -14,8 +20,8 @@ class Api::RequestsController < ApplicationController
       body: params[:body],
       time_stamp: Time.now.strftime('%c'),
       due_date: params[:due_date],
-      over_due: params[:over_due] || false,
-      complete: params[:complete] || false,
+      over_due: over_due,
+      complete: params[:complete],
     )
     if params[:request_attachment]
       @request.request_attachment.attach(params[:request_attachment])
@@ -33,15 +39,21 @@ class Api::RequestsController < ApplicationController
   end
 
   def update
+    if params[:complete]
+      over_due = false
+    else
+      over_due = params[:over_due]
+    end
+
     @request = Request.find_by(id: params[:id])
     @request.goal_id = params[:goal_id] || @request.goal_id
     @request.relationship_id = params[:relationship_id] || @request.relationship_id
     @request.body = params[:body] || @request.body
     @request.due_date = params[:due_date] || @request.due_date
-    @request.over_due = params[:over_due] || @request.over_due
-    @request.complete = params[:complete] || @request.complete
+    @request.over_due = over_due 
+    @request.complete = params[:complete]
     if @request.save
-      render json: { message: 'Request updated successfully' }, status: :created
+      render "show.json.jbuilder", status: :created
     else
       render json: { errors: @request.errors.full_messages }, status: :bad_request
     end
