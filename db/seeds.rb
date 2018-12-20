@@ -43,74 +43,99 @@ goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
   subject: "Social Media Growth",
-  body: "Increase Follower Count, Frequency of Posting, and Overall Reach on Instagram, Facebook, and Twitter",
+  body: "Increase Follower Count, Frequency of Posting, and Overall Reach",
   start_date: "2018-02-01 09:30:00",
-  end_date: "2019-12-31 17:00:00",
+  end_date: "2019-12-31 11:00:00",
   )
 
 goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
-  subject: "Finish Sophmore Album",
-  body: "'PhonkMasterFresh' - Hottest Mixtape of 2020",
+  subject: "Finish Demo's for Sophmore Album",
+  body: "'Inbetween and Outside' - Release Via Matador Records",
   start_date: "2018-05-21 00:00:00",
-  end_date: "2020-11-01 17:00:00",
+  end_date: "2020-11-01 11:00:00",
   )
 
 goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
-  subject: "Book Tour",
+  subject: "Book Midwest Tour",
   body: "12 Cities - 3 Weeks - 2020",
-  start_date: "2020-06-22 17:00:00",
-  end_date: "2020-06-01 17:00:00",
+  start_date: "2018-06-22 11:00:00",
+  end_date: "2020-06-01 11:00:00",
   )
 
 goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
   subject: "PRO Affiliation",
-  body: "Set-up Performing Right and File Necessary Paperwork",
-  start_date: "2018-10-15 17:00:00",
-  end_date: "2018-11-01 17:00:00",
-  )
-
-goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
-  subject: "Tour Management",
-  body: "Dates, Cities, Hotels, Etc.",
-  start_date: "2020-06-01 9:00:00",
-  end_date: "2020-06-22 17:00:00",
+  body: "Set-Up Performing Right, File Necessary Paperwork, and Send to Legal Counsil for Review",
+  start_date: "2018-10-15 11:00:00",
+  end_date: "2018-11-01 11:00:00",
   )
 
 goal = Goal.create!(
   user_id: 1,
   relationship_id: 1,
   subject: "Album Artwork",
-  body: "Concept, Designer, and Renderings",
+  body: "Concept, Designer, and Renderings -- Designer: Tyler Nelson",
   start_date: "2018-11-01 7:00:00",
-  end_date: "2020-11-01 17:00:00",
-  )
-
-goal = Goal.create!(
-  user_id: 1,
-  relationship_id: 1,
-  subject: "Stuff",
-  body: "Get That Stuff Done Kid",
-  start_date: "2018-11-21 00:00:00",
-  end_date: "2020-11-21 00:00:00",
+  end_date: "2020-11-01 11:00:00",
   )
 
 # REQUESTS
+request = Request.create!(
+  user_id: 1,
+  goal_id: 1,
+  relationship_id: 1,
+  body: "Pay monthly subscription fee to social media growth service",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-11-31 11:00:00",
+  over_due: false,
+  complete: false,
+  )
 
 request = Request.create!(
   user_id: 1,
-  goal_id: 7,
-  relationship_id: 2,
-  body: "Pay session musician for studio time on 10/05/2018",
+  goal_id: 1,
+  relationship_id: 1,
+  body: "Develope list of similar artists, influences, and persons of interest. Please generate list with necessary social media handles.",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2018-11-05 17:00:00",
+  due_date: "2018-12-31 11:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 1,
+  relationship_id: 1,
+  body: "Three Instagram posts by end of week 12/15",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-12-15 09:00:00",
+  over_due: true,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 1,
+  goal_id: 1,
+  relationship_id: 1,
+  body: "Touch base with Tyler Nelson about social media banner formatting and design.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-11-04 09:00:00",
+  over_due: false,
+  complete: true,
+  )
+
+request = Request.create!(
+  user_id: 1,
+  goal_id: 2,
+  relationship_id: 1,
+  body: "Pay session musician for studio time",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-10-25 11:00:00",
   over_due: true,
   complete: false,
   )
@@ -121,9 +146,9 @@ request = Request.create!(
   relationship_id: 1,
   body: "Review working demo for 'Upside Down'",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2018-11-15 09:00:00",
+  due_date: "2019-01-05 09:00:00",
   over_due: false,
-  complete: true,
+  complete: false,
   )
 
 request = Request.create!(
@@ -132,42 +157,152 @@ request = Request.create!(
   relationship_id: 1,
   body: "Review 'Updsie Down' derivative work liscense",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2018-11-25 12:00:00",
+  due_date: "2019-02-01 12:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 1,
+  goal_id: 2,
+  relationship_id: 1,
+  body: "Omit three tracks from final tracklist. Please consider overall concept when deciding!",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-12-19 12:00:00",
+  over_due: true,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 3,
+  relationship_id: 1,
+  body: "Generate rider list. Please consider fellow band-members, crew, and managers.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2019-06-13 09:00:00",
   over_due: false,
   complete: false,
   )
 
 request = Request.create!(
   user_id: 2,
-  goal_id: 6,
-  relationship_id: 3,
-  body: "Schedule interview w/George (graphic designer)",
+  goal_id: 3,
+  relationship_id: 1,
+  body: "Previous initial-plot not accepted by 1/2 the booked venues. Please re-draw.",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2019-06-13 09:00:00",
+  due_date: "2019-05-20 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 3,
+  relationship_id: 1,
+  body: "Cut out two amps, two guitars, and one keyboard from gear list.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-12-31 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 3,
+  relationship_id: 1,
+  body: "Create alternative set-list for half-hour time slots.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2019-05-01 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 4,
+  relationship_id: 1,
+  body: "File lyric sheets with library of congress in their entirety.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2020-05-01 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 1,
+  goal_id: 4,
+  relationship_id: 1,
+  body: "Schedule meeting with legal counsil about copyrighting likeness and images.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2020-05-01 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 4,
+  relationship_id: 1,
+  body: "Pay initial filing fee to ASCAP",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2020-05-01 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 4,
+  relationship_id: 1,
+  body: "Compare and contrast BMI, ASCAP, and SESAC.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2019-05-01 09:00:00",
+  over_due: false,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 1,
+  goal_id: 5,
+  relationship_id: 1,
+  body: "Send .PNG files of existing logo to Tyler to repupose.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2018-11-01 09:00:00",
+  over_due: true,
+  complete: false,
+  )
+
+request = Request.create!(
+  user_id: 2,
+  goal_id: 5,
+  relationship_id: 1,
+  body: "Send free-lance contract to Tyler Nelson.",
+  time_stamp: Time.now.strftime('%c'),
+  due_date: "2020-05-01 09:00:00",
   over_due: false,
   complete: true,
   )
 
 request = Request.create!(
   user_id: 2,
-  goal_id: 1,
+  goal_id: 5,
   relationship_id: 1,
-  body: "Three Instagram posts by end of week 12/15",
+  body: "Schedule interview w/George (graphic designer)",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2018-11-04 09:00:00",
-  over_due: true,
-  complete: false,
+  due_date: "2018-08-13 09:00:00",
+  over_due: false,
+  complete: true,
   )
 
 request = Request.create!(
-  user_id: 1,
-  goal_id: 1,
+  user_id: 2,
+  goal_id: 5,
   relationship_id: 1,
-  body: "Pay monthly subscription fee to social media growth service",
+  body: "Send Tyler free-hand concept art for merchendise, posters, and cover-art.",
   time_stamp: Time.now.strftime('%c'),
-  due_date: "2018-11-31 17:00:00",
+  due_date: "2018-11-12 09:00:00",
   over_due: false,
-  complete: false,
+  complete: true,
   )
 
 # CATEGORIES
@@ -214,82 +349,82 @@ category = Category.create!(
 
 category = Category.create!(
   name: "Booking",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "EP",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Social Media",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Music Business",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Graphic Design",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Money",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Studio Time",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Misc.",
-  relationship_id: 2,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Touring",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Single",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Instagram/Facebook",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Business",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Album Artwork",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Accounting",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Recording Sessions",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 category = Category.create!(
   name: "Misc.",
-  relationship_id: 3,
+  relationship_id: 1,
   )
 
 
